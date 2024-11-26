@@ -12,27 +12,22 @@ class MainWindow(QMainWindow):
         self.init_ui()
 
     def init_ui(self):
-        # Создаем главное окно и виджеты
         self.game_view = GameView()
         self.settings_dialog = SettingsDialog()
         self.statistics_dialog = StatisticsDialog()
 
-        # Виджеты главного меню
         play_button = QPushButton("Играть")
         settings_button = QPushButton("Настройки")
         stats_button = QPushButton("Статистика")
 
-        # Подключаем кнопки к их действиям
         play_button.clicked.connect(self.start_game)
         settings_button.clicked.connect(self.open_settings)
         stats_button.clicked.connect(self.show_statistics)
 
-        # Устанавливаем кнопки в макет
         layout = QVBoxLayout()
         for button in [play_button, settings_button, stats_button]:
             layout.addWidget(button)
 
-        # Центральный виджет
         central_widget = QWidget()
         central_widget.setLayout(layout)
         self.setCentralWidget(central_widget)

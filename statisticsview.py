@@ -9,21 +9,17 @@ class StatisticsDialog(QDialog):
         self.setWindowTitle("Статистика")
         self.stats_file = "statistics.json"
 
-        # Основной макет
         layout = QVBoxLayout()
         self.setLayout(layout)
 
-        # Метка для отображения статистики
         self.stats_label = QLabel()
         self.stats_label.setText("Статистика отсутствует.")
         layout.addWidget(self.stats_label)
 
-        # Кнопка очистки статистики
         clear_button = QPushButton("Очистить статистику", self)
         clear_button.clicked.connect(self.clear_statistics)
         layout.addWidget(clear_button)
 
-        # Загрузка данных
         self.load_statistics()
 
     def load_statistics(self):
